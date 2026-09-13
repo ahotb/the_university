@@ -1,5 +1,5 @@
 # the_university
 
-g++ main.c++ -o app
+g++ main.cpp -o app
 للتحويل الملف وبعدها يكون ملف قابل للتشغيل 
 ./واسم الملف
