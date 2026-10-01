@@ -15,4 +15,6 @@ int main(){
    }else{
     cout << "This is not true" << endl;
    }
+
+    return 0;
    }
