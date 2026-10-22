@@ -11,7 +11,7 @@ int sigma(int n) {
 int main() {
     int n;
     std::cin >> n;
-    int res = sigma(n);
-    std::cout << res;
+    int result = sigma(n);
+    std::cout << result;
     return 0;
 }
