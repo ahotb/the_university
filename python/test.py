@@ -1,6 +1,3 @@
-def symbol_line():
-    x = 'a[0] = {"k": (1 + 2) * 3}  # done'
-    print(x)
-    print(len(x))
-
-symbol_line()
+n = int(input())
+for i in range(1, n+1, 2):
+    print("*"* (i))
