@@ -1,8 +1,10 @@
 def display_menu():
-    menu = ["Add Contact", "View Contact", "Edit Contact", "Delete Contact", "List All Contacts", "Exit"]
+    menu = ["Add Contact", "View Contact", "Edit Contact",
+            "Delete Contact", "List All Contacts", "Exit"]
     print("Contact Book Menu:")
     for i in range(len(menu)):
         print(f"{i + 1}. {menu[i]}")
+
 
 def add_contact(contact_book):
     name = input()
@@ -13,10 +15,11 @@ def add_contact(contact_book):
         print("Contact already exists!")
     else:
         contact_book[name] = {
-        "phone": phone,
-	    "email": email,
-	    "address": address}
+            "phone": phone,
+            "email": email,
+            "address": address}
         print("Contact added successfully!")
+
 
 def view_contact(contact_book):
     name = input()
@@ -27,6 +30,7 @@ def view_contact(contact_book):
         print(f"Name: {name}")
         for key, value in contact_info.items():
             print(f"{key.capitalize()}: {value}")
+
 
 def edit_contact(contact_book):
     name = input()
@@ -45,10 +49,22 @@ def edit_contact(contact_book):
         print("Contact updated successfully!")
 
 
+def delete_contact(contact_book):
+    name = input()
+    if name not in contact_book:
+        print("Contact not found!")
+    else:
+        del contact_book[name]
+        print("Contact deleted successfully!")
 
 
-
-
-
-
-
+def list_all_contacts(contact_book):
+    if contact_book:
+        for name, info in contact_book.items():
+            print(f"Name: {name}")
+            print(f"Phone: {info['phone']}")
+            print(f"Email: {info['email']}")
+            print(f"Address: {info['address']}")
+            print()
+    else:
+        print("No contacts available.")
