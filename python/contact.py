@@ -7,10 +7,10 @@ def display_menu():
 
 
 def add_contact(contact_book):
-    name = input()
-    phone = input()
-    email = input()
-    address = input()
+    name = input("Enter your name: ")
+    phone = input("Enter your phone: ")
+    email = input("Enter your email: ")
+    address = input("Enter your address: ")
     if name in contact_book:
         print("Contact already exists!")
     else:
@@ -22,7 +22,7 @@ def add_contact(contact_book):
 
 
 def view_contact(contact_book):
-    name = input()
+    name = input("Enter your name to view: ")
     if name not in contact_book:
         print("Contact not found!")
     else:
@@ -33,13 +33,13 @@ def view_contact(contact_book):
 
 
 def edit_contact(contact_book):
-    name = input()
+    name = input("Enter your name to edit: ")
     if name not in contact_book:
         print("Contact not found!")
     else:
-        newPhone = input()
-        newEmail = input()
-        newAddress = input()
+        newPhone = input("Enter your new phone or press enter: ")
+        newEmail = input("Enter your new email or press enter: ")
+        newAddress = input("Enter your new address or press enter: ")
         if newPhone:
             contact_book[name]["phone"] = newPhone
         if newEmail:
@@ -50,7 +50,7 @@ def edit_contact(contact_book):
 
 
 def delete_contact(contact_book):
-    name = input()
+    name = input("Enter your name to delete: ")
     if name not in contact_book:
         print("Contact not found!")
     else:
@@ -68,3 +68,29 @@ def list_all_contacts(contact_book):
             print()
     else:
         print("No contacts available.")
+
+
+contact_book = {}
+while True:
+    display_menu()
+    try:
+
+        n = int(input())
+
+        if n < 1 or n > 6:
+            raise ValueError
+
+        if n == 1:
+            add_contact(contact_book)
+        elif n == 2:
+            view_contact(contact_book)
+        elif n == 3:
+            edit_contact(contact_book)
+        elif n == 4:
+            delete_contact(contact_book)
+        elif n == 5:
+            list_all_contacts(contact_book)
+        elif n == 6:
+            break
+    except ValueError:
+        print("Invalid choice. Please try again.")
